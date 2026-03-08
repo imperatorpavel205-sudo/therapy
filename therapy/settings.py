@@ -25,17 +25,14 @@ SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 # PythonAnywhere домены - ВАЖНО: замените 'yourusername' на ваш username
+# Railway домены
 ALLOWED_HOSTS = [
-    'yourusername.pythonanywhere.com',  # замените yourusername
     'localhost',
     '127.0.0.1',
+    '.up.railway.app',  # ВАЖНО: точка в начале означает все поддомены railway.app
+    'web-production-1fa23.up.railway.app',  # ваш конкретный домен
 ]
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://yourusername.pythonanywhere.com',  # замените yourusername
-    'http://localhost',
-    'http://127.0.0.1',
-]
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', 'http://localhost,http://127.0.0.1,https://*.up.railway.app').split(',')
 
 # Application definition
 INSTALLED_APPS = [
