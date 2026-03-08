@@ -1,8 +1,9 @@
 asgiref==3.10.0
 certifi==2025.11.12
 charset-normalizer==3.4.4
-Django==5.2.8
+Django==6.0.1
 django-otp==1.7.0
+future==1.0.0
 idna==3.11
 pillow==12.1.0
 python-dotenv==1.2.1
