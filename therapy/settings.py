@@ -1,36 +1,33 @@
 """
-Production settings for therapy project - Render.com version
+Production settings for therapy project - DigitalOcean App Platform version
 """
 
 import os
+import sys
 from pathlib import Path
 import dj_database_url
 from dotenv import load_dotenv
+from django.core.management.utils import get_random_secret_key
 
-
+# Load environment variables from .env file (for local development)
 load_dotenv()
+
 # Build paths
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security
-SECRET_KEY = os.environ.get('SECRET_KEY')
-if not SECRET_KEY:
-    raise ValueError("SECRET_KEY must be set!")
+PRODUCTION = os.getenv('PRODUCTION', 'False') == 'True'
 
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 
-# Render.com домены
-RENDER_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME', '')
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '.onrender.com',
-    RENDER_HOSTNAME,
-]
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://' + host for host in ALLOWED_HOSTS if host
-]
+# DigitalOcean App Platform домены
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', 'http://localhost,http://127.0.0.1').split(',')
 
 # Application definition
 INSTALLED_APPS = [
@@ -45,7 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Для статических файлов
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -75,20 +72,24 @@ TEMPLATES = [
 WSGI_APPLICATION = 'therapy.wsgi.application'
 
 # Database
-if os.environ.get('RENDER', False):
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL'),
-            conn_max_age=600,
-            ssl_require=True
-        )
-    }
-else:
+if PRODUCTION is False:
+    # Локально используем SQLite
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
+    }
+elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
+    # На продакшене используем PostgreSQL
+    if os.getenv("DATABASE_URL", None) is None:
+        raise Exception("DATABASE_URL environment variable not defined")
+    DATABASES = {
+        "default": dj_database_url.config(
+            default=os.getenv("DATABASE_URL"),
+            conn_max_age=600,
+            ssl_require=True
+        )
     }
 
 # Password validation
@@ -113,7 +114,7 @@ TIME_ZONE = 'Europe/Moscow'
 USE_I18N = True
 USE_TZ = True
 
-# Static files
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
@@ -121,12 +122,12 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media files
+# Media files (user uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Security settings for production
-if not DEBUG:
+if PRODUCTION:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
@@ -137,7 +138,7 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
-# Logging
+# Logging - упрощенная версия
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
