@@ -1,18 +1,13 @@
 """
-Production settings for therapy project - SpaceWeb version
+Production settings for therapy project - Render.com version
 """
 
 import os
 from pathlib import Path
-from dotenv import load_dotenv
+import dj_database_url
 
 # Build paths
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-# Загрузка .env (на SpaceWeb лучше использовать переменные окружения в панели)
-ENV_PATH = BASE_DIR / '.env'
-if ENV_PATH.exists():
-    load_dotenv(dotenv_path=ENV_PATH)
 
 # Security
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -21,8 +16,18 @@ if not SECRET_KEY:
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-# На SpaceWeb ваш сайт будет доступен по домену (или поддомену spaceweb.ru)
-ALLOWED_HOSTS = ['ваш-домен.ru', 'www.ваш-домен.ru', 'ваш-логин.spaceweb.ru', 'localhost', '127.0.0.1']
+# Render.com домены
+RENDER_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME', '')
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '.onrender.com',
+    RENDER_HOSTNAME,
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://' + host for host in ALLOWED_HOSTS if host
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -37,7 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Для статики
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -67,25 +72,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'therapy.wsgi.application'
 
 # Database
-# На SpaceWeb можно использовать SQLite (хранится постоянно) или PostgreSQL
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.environ.get('RENDER', False):
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL'),
+            conn_max_age=600,
+            ssl_require=True
+        )
     }
-}
-
-# Если решите использовать PostgreSQL на SpaceWeb:
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'имя_бд',
-#         'USER': 'пользователь',
-#         'PASSWORD': 'пароль',
-#         'HOST': 'localhost',  # или хост БД от SpaceWeb
-#         'PORT': '5432',
-#     }
-# }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -93,7 +94,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -105,11 +106,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 LANGUAGE_CODE = 'ru'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+# Static files
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
@@ -117,7 +118,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media files (user uploads) - если понадобятся
+# Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
