@@ -1,2 +1,23 @@
-web-app.tar.gz
+# Django
+*.pyc
+__pycache__/
+db.sqlite3
+/media/
+/static/
+
+# Environment
+.env
+venv/
+.venv/
+env/
+
+# Archives
 *.tar.gz
+*.tgz
+
+# IDE
+.idea/
+.vscode/
+
+# Local
+ngrok*
