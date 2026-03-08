@@ -1,5 +1,5 @@
 """
-Production settings for therapy project - DigitalOcean App Platform version
+Production settings for therapy project - PythonAnywhere version
 """
 
 import os
@@ -24,10 +24,18 @@ SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-# DigitalOcean App Platform домены
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+# PythonAnywhere домены - ВАЖНО: замените 'yourusername' на ваш username
+ALLOWED_HOSTS = [
+    'yourusername.pythonanywhere.com',  # замените yourusername
+    'localhost',
+    '127.0.0.1',
+]
 
-CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', 'http://localhost,http://127.0.0.1').split(',')
+CSRF_TRUSTED_ORIGINS = [
+    'https://yourusername.pythonanywhere.com',  # замените yourusername
+    'http://localhost',
+    'http://127.0.0.1',
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -71,26 +79,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'therapy.wsgi.application'
 
-# Database
-if PRODUCTION is False:
-    # Локально используем SQLite
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+# Database - на PythonAnywhere бесплатный тариф использует SQLite
+# PostgreSQL доступен только на платных тарифах
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
-    # На продакшене используем PostgreSQL
-    if os.getenv("DATABASE_URL", None) is None:
-        raise Exception("DATABASE_URL environment variable not defined")
-    DATABASES = {
-        "default": dj_database_url.config(
-            default=os.getenv("DATABASE_URL"),
-            conn_max_age=600,
-            ssl_require=True
-        )
-    }
+}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
