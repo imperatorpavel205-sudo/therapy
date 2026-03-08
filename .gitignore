@@ -24,3 +24,8 @@ ngrok*
 .env
 *.log
 db.sqlite3
+.env
+*.pyc
+__pycache__
+db.sqlite3
+*.log
