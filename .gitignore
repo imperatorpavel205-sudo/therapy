@@ -21,3 +21,6 @@ env/
 
 # Local
 ngrok*
+.env
+*.log
+db.sqlite3

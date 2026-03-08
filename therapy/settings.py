@@ -5,7 +5,10 @@ Production settings for therapy project - Render.com version
 import os
 from pathlib import Path
 import dj_database_url
+from dotenv import load_dotenv
 
+
+load_dotenv()
 # Build paths
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -138,28 +141,15 @@ if not DEBUG:
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-            'style': '{',
-        },
-    },
     'handlers': {
-        'file': {
-            'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'logs' / 'django-error.log',
-            'formatter': 'verbose',
-        },
         'console': {
             'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['file', 'console'],
-            'level': 'ERROR',
-            'propagate': True,
+            'handlers': ['console'],
+            'level': 'INFO',
         },
     },
 }
