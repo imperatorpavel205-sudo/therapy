@@ -1,0 +1,433 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Александр Журба – Психолог, Терапевт Души{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* УБИРАЕМ ВСЕ ЛИШНИЕ ЛИНИИ И ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ */
+
+    /* 1. Отключаем все псевдоэлементы на странице */
+    .page.vue *::before,
+    .page.vue *::after,
+    .page-background *::before,
+    .page-background *::after,
+    .page-content *::before,
+    .page-content *::after,
+    .blocks-section *::before,
+    .blocks-section *::after,
+    .block-item *::before,
+    .block-item *::after,
+    .white-banner *::before,
+    .white-banner *::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    /* 2. Убираем все границы и обводки */
+    * {
+        border: none !important;
+        outline: none !important;
+    }
+
+    /* 3. Убираем декоративную полоску сверху */
+    .page-content::before {
+        display: none !important;
+        content: none !important;
+    }
+
+    /* 4. Убираем все фоновые линии от Taplink */
+    .page-background,
+    .page-background-overlay,
+    .page-background-extended,
+    .page-background-extended-items {
+        background: none !important;
+        border: none !important;
+        outline: none !important;
+    }
+
+    .page-background-overlay:before,
+    .page-background-extended:before,
+    .page-background-extended-items:before {
+        display: none !important;
+        content: none !important;
+    }
+
+    /* 5. Убираем resize-triggers которые создают линии */
+    .resize-triggers,
+    .resize-triggers > div,
+    .contract-trigger,
+    .contract-trigger:before {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    /* 6. Убираем подчеркивания у текста */
+    u {
+        text-decoration: none !important;
+    }
+
+    /* 7. Убираем маркеры списков */
+    li {
+        list-style: none !important;
+    }
+
+    /* 8. Основные стили для страницы (оставляем только нужное) */
+
+    /* ФОН */
+    body {
+        background: url('{% static "main/img/1234.jpg" %}') center / cover no-repeat fixed #fff !important;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* Стили для белой ленты с текстом */
+    .white-banner {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        margin: 20px 0;
+        border-radius: 16px;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.18);
+        backdrop-filter: blur(12px);
+        max-height: 480px;
+        overflow-y: auto;
+        position: relative;
+    }
+
+    .white-banner::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .white-banner::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    .white-banner::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+    }
+
+    .white-banner .block-text {
+        color: #000 !important;
+        font-size: 18px !important;
+        line-height: 1.6 !important;
+        text-align: left !important;
+        padding: 20px;
+        margin: 0;
+    }
+
+    .white-banner b {
+        font-weight: bold;
+        color: #121254;
+    }
+
+    .white-banner i {
+        font-style: italic;
+        color: #333;
+    }
+
+    /* Кнопки */
+    .btn-link-title {
+        font-size: 18px !important;
+    }
+
+    .btn-link-subtitle {
+        font-size: 16px !important;
+    }
+
+    /* Адаптивность для мобильных устройств */
+    @media (max-width: 768px) {
+        .white-banner {
+            padding: 20px;
+            margin: 15px 0;
+            max-height: 550px;
+            border-radius: 12px;
+        }
+
+        .white-banner .block-text {
+            font-size: 16px !important;
+            line-height: 1.5 !important;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block head_scripts %}
+<script>
+    window.account = {
+        "account_id": 11998303,
+        "language_id": 1,
+        "language_code": "ru",
+        "language_code_account": "ru",
+        "main_page_id": 16936027,
+        "profile_id": 13701826,
+        "is_hidelink": 1,
+        "is_plus": 0,
+        "is_trial": 0,
+        "is_full_trial": 0,
+        "tariff_current": "business",
+        "utc_timezone": 3,
+        "currency_id": 1,
+        "plan_until": 1785542400,
+        "nickname": null,
+        "has_nickname": 0,
+        "theme": {
+            "heading": { "font": "14", "color": "#121254", "weight": "1", "brightness": "dark" },
+            "screen": { "font": "0", "weight": 200, "bg": null, "gradient": null },
+            "avatar": {
+                "title": { "color": "#121254", "font": 0 },
+                "bio": { "color": "#121254", "font": 0 }
+            },
+            "link": {
+                "bg": "#121254",
+                "color": "#121254",
+                "font": "0",
+                "subtitle": { "color": "#121254", "font": "0" },
+                "transparent": 100
+            },
+            "bg": {
+                "position": "50% 0%",
+                "repeat": "no-repeat",
+                "picture": { "link": "/s/i/themes/555935.jpg", "width": 2048, "height": 450 },
+                "color": "#ffffff"
+            },
+            "block": {
+                "pictures": {
+                    "title": "#121254",
+                    "button_text": "#121254",
+                    "nav": "#121254"
+                }
+            },
+            "sections": { "_": 1, "p": { "bg": { "color": "#f4f4f6" } } }
+        },
+        "menu": null,
+        "menu_items": null,
+        "profile_link": "https://gigovsky.ru",
+        "addons": {
+            "codes": [
+                {
+                    "cb": "yandexMetrikaInit",
+                    "cookie": "analytics",
+                    "data": { "id": 44929738, "simple": true }
+                },
+                {
+                    "cb": "yandexMetrikaInit",
+                    "cookie": "analytics",
+                    "data": {
+                        "ssr": "true",
+                        "clickmap": "true",
+                        "webvisor": "true",
+                        "ecommerce": "dataLayer",
+                        "trackLinks": "true",
+                        "accurateTrackBounce": "true",
+                        "id": "103873304",
+                        "customer": true
+                    }
+                }
+            ]
+        },
+        "locales": { "pages": "ru" },
+        "avatar": {
+            "path": "1/1/6/5/",
+            "title": "Александр Журба. Психолог-консультант",
+            "bio": "Терапия Души для взрослых, которые устали жить в хаосе",
+            "a": "150:jpg?4",
+            "is_hide_text": 0
+        },
+        "currency": { "title": "₽", "code": "RUB", "format": "%p %c", "precision": 2 },
+        "products": [],
+        "username": null,
+        "current_page_id": 17006715,
+        "widgets": [],
+        "custom_domain": "gigovsky.ru",
+        "domain": "taplink.ru",
+        "client": { "country": "ru", "timestamp": 1768662710 },
+        "locale": {
+            "formats": { "date": "d.m.Y" },
+            "current": "ru",
+            "direction": "ltr"
+        },
+        "number": { "decimal": ".", "thousands": " ", "precision": 2 },
+        "weight": { "decimal": ".", "thousands": " ", "precision": 3 },
+        "ts": "ec28fff7",
+        "html": ""
+    };
+
+    window.data = {
+        "page_id": 17006715,
+        "fields": [{
+            "section": null,
+            "items": [
+                {
+                    "block_id": 80122885,
+                    "options": {
+                        "title": "Индивидуальная сессия",
+                        "subtitle": "от 2000р. Записаться",
+                        "value": "https://widget.booknow.ru/gigovskiy-a-a",
+                        "animation": "heart",
+                        "design": {
+                            "color": "#ffffff",
+                            "subtitle": { "color": "#ffffff" },
+                            "bg": "#4c6ef5",
+                            "transparent": 0,
+                            "on": 1
+                        }
+                    },
+                    "block_type_id": 2,
+                    "block_type_name": "link",
+                    "is_visible": 1,
+                    "addon_target": ["form", "link"],
+                    "stat": "fedec0"
+                },
+                {
+                    "options": {
+                        "text": "<b>ИНДИВИДУАЛЬНЫЕ ОНЛАЙН-СЕССИИ</b><br><br>Сейчас я работаю только в формате индивидуальной терапии онлайн.<br><i>Это значит: без групп, марафонов и «общих» рекомендаций — только ты, твой запрос и наша работа один на один.</i><br><br><b>ФОРМАТЫ РАБОТЫ</b><br><br><u><b>Ориентир-встреча — 20 минут, 2 000 ₽</b></u><br><br>Если ты пока не до конца понимаешь, в чём твой запрос и подойдём ли мы друг другу, можно начать с короткого знакомства.<br><br>За 20 минут мы:<br><br>проясняем, что именно сейчас больше всего болит или мешает жить;<br><br>определяем, с чем реально можно поработать в терапии;<br><br>обсуждаем, какой формат будет оптимален именно для тебя.<br><br><i>Если в течение 48 часов после этой встречи ты решаешь продолжать работу и берёшь пакет, эти 2 000 ₽ идут в зачёт стоимости пакета.</i><br><br><u><b>Индивидуальная сессия — 55 минут, 5 000 ₽</b></u><br><br>Это стандартная терапевтическая сессия «один на один».<br>Мы работаем с твоей темой: отношениями, тревогой, выгоранием, потерей смысла, деньгами, самооценкой — тем, что сейчас на первом месте.<br><br>Подойдёт, если:<br><br>тебе важно попробовать метод в «полном формате»;<br><br>у тебя локальный запрос, который не требует длинной работы;<br><br>ты хочешь сначала прочувствовать, как тебе со мной и моим подходом.<br><br><b>ПАКЕТЫ СЕССИЙ</b><br><br>Если ты готов двигаться системно, а не «от раза к разу»,<br>выгоднее и честнее по отношению к себе брать пакет.<br><br>Пакеты 3 / 5 / 8 сессий:<br><br>дают фиксированный ритм: раз в неделю или раз в 7–10 дней;<br><br>позволяют глубже пройти путь от хаоса к ясности;<br><br>выгоднее по цене, чем разовые сессии.<br><br>👉 Подробные условия и цены пакетов — по кнопке&nbsp;"
+                    },
+                    "is_visible": true,
+                    "block_type_id": 1,
+                    "block_type_name": "text",
+                    "block_id": "b48af42efbc2",
+                    "addon_target": null
+                },
+                {
+                    "block_id": 80140938,
+                    "options": {
+                        "title": "Пакетное предложение",
+                        "subtitle": "Цена от 4тыс",
+                        "type": "page",
+                        "value": "pack",
+                        "animation": "blink",
+                        "design": {
+                            "color": "#ffffff",
+                            "subtitle": { "color": "#ffffff" },
+                            "bg": "#5c7cfa",
+                            "transparent": 0,
+                            "on": 1
+                        }
+                    },
+                    "block_type_id": 2,
+                    "block_type_name": "link",
+                    "is_visible": 1,
+                    "addon_target": ["form", "link"],
+                    "stat": "ef395c"
+                }
+            ]
+        }],
+        "options": []
+    };
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- Page Content -->
+<div class="page vue">
+    <div class="page-background is-device-xs" page_filename="103807b">
+        <div class="page-background-overlay">
+            <div class="page-background-extended">
+                <div class="page-background-extended-items"></div>
+
+                <div class="page-content max-page-container-lg page-valign-top">
+                    <div class="is-flex-fullheight">
+                        <div class="is-flex-fullheight">
+                            <main class="is-flex-fullheight">
+                                <div class="is-flex-fullheight is-flex-fullheight">
+                                    <div class="blocks-section s-17006715-0 is-transparent is-first">
+                                        <div class="page-container">
+                                            <div class="section-main">
+                                                <!-- Block: Individual Session Button -->
+                                                <div class="block-item block-link is-first b-80122885">
+                                                    <div class="is-ltr" account="[object Object]" index="0" page_filename="103807b" device-class="xs">
+                                                        <a rel="noopener"
+                                                           data-link="https://booking.booknow.ru/masterskaya-terapii-dushi"
+                                                           href="https://booking.booknow.ru/masterskaya-terapii-dushi"
+                                                           target="_top"
+                                                           aria-label="Индивидуальная сессия"
+                                                           class="button btn-link btn-link-styled has-text-element without-thumb has-animation has-animation-heart"
+                                                           style="--block-link-subtitle-color: #ffffff; --block-link-title-color: #ffffff; --block-link-background: #4c6ef5; --block-link-background-digs: 76,110,245; --block-link-border-color: #4c6ef5; --block-link-border-width: 2px; --block-link-border-width-offset: 2px; --block-link-shadow-params: none; --block-link-shadow-color: #00000033; --block-link-contrast-color: #fff; --block-link-title-fontsize: 18px; --block-link-title-lineheight: 1.2; --block-link-title-font-family: 'Roboto',sans-serif; --block-link-title-transform: none; --block-link-title-font-weight: 400; --block-link-subtitle-fontsize: 16px; --block-link-subtitle-lineheight: 1.2; --block-link-subtitle-font-family: 'Roboto',sans-serif;">
+                                                            <div>
+                                                                <div class="btn-link-title">Индивидуальная сессия</div>
+                                                                <div class="btn-link-subtitle">от 2000р. Записаться</div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Block: Combined Description Text in White Banner -->
+                                                <div class="block-item white-banner">
+                                                    <div class="block-text has-text-element has-rtl"
+                                                         block_id="b48af42efbc2"
+                                                         account="[object Object]"
+                                                         index="1"
+                                                         page_id="17006715"
+                                                         page_filename="103807b"
+                                                         device-class="xs">
+                                                        <b>ИНДИВИДУАЛЬНЫЕ ОНЛАЙН-СЕССИИ</b><br><br>
+                                                        Сейчас я работаю только в&nbsp;формате индивидуальной терапии онлайн.<br>
+                                                        <i>Это значит: без&nbsp;групп, марафонов и «общих» рекомендаций — только ты, твой запрос и&nbsp;наша работа один на&nbsp;один.</i><br><br>
+                                                        <b>ФОРМАТЫ РАБОТЫ</b><br><br>
+                                                        <u><b>Ориентир-встреча — 20 минут, 2 000 ₽</b></u><br><br>
+                                                        Если ты пока не&nbsp;до конца понимаешь, в&nbsp;чём твой запрос и&nbsp;подойдём ли мы друг другу, можно начать с&nbsp;короткого знакомства.<br><br>
+                                                        За 20 минут мы:<br><br>
+                                                        проясняем, что&nbsp;именно сейчас больше всего болит или&nbsp;мешает жить;<br><br>
+                                                        определяем, с&nbsp;чем реально можно поработать в&nbsp;терапии;<br><br>
+                                                        обсуждаем, какой формат будет оптимален именно для&nbsp;тебя.<br><br>
+                                                        <i>Если в&nbsp;течение 48 часов после этой встречи ты решаешь продолжать работу и&nbsp;берёшь пакет, эти 2 000 ₽ идут в&nbsp;зачёт стоимости пакета.</i><br><br>
+                                                        <u><b>Индивидуальная сессия — 55 минут, 5 000 ₽</b></u><br><br>
+                                                        Это стандартная терапевтическая сессия «один на&nbsp;один».<br>
+                                                        Мы работаем с&nbsp;твоей темой: отношениями, тревогой, выгоранием, потерей смысла, деньгами, самооценкой — тем, что&nbsp;сейчас на&nbsp;первом месте.<br><br>
+                                                        Подойдёт, если:<br><br>
+                                                        тебе важно попробовать метод в «полном формате»;<br><br>
+                                                        у&nbsp;тебя локальный запрос, который не&nbsp;требует длинной работы;<br><br>
+                                                        ты хочешь сначала прочувствовать, как&nbsp;тебе со мной и&nbsp;моим подходом.<br><br>
+                                                        <b>ПАКЕТЫ СЕССИЙ</b><br><br>
+                                                        Если ты готов двигаться системно, а&nbsp;не «от раза к&nbsp;разу»,<br>
+                                                        выгоднее и&nbsp;честнее по&nbsp;отношению к&nbsp;себе брать пакет.<br><br>
+                                                        Пакеты 3 / 5 / 8 сессий:<br><br>
+                                                        дают фиксированный ритм: раз в&nbsp;неделю или&nbsp;раз в 7–10 дней;<br><br>
+                                                        позволяют глубже пройти путь от&nbsp;хаоса к&nbsp;ясности;<br><br>
+                                                        выгоднее по&nbsp;цене, чем разовые сессии.<br><br>
+                                                        👉 Подробные условия и&nbsp;цены пакетов — по&nbsp;кнопке&nbsp;
+                                                    </div>
+                                                </div>
+
+                                                <!-- Block: Package Offer Button -->
+                                                <div class="block-item block-link b-80140938">
+                                                    <div class="is-ltr" account="[object Object]" index="2" page_filename="103807b" device-class="xs">
+                                                        <a href="{% url 'main:pack' %}"
+                                                           class="button btn-link btn-link-styled has-text-element without-thumb has-animation has-animation-blink"
+                                                           rel="noopener"
+                                                           aria-label="Пакетное предложение"
+                                                           style="--block-link-subtitle-color: #ffffff; --block-link-title-color: #ffffff; --block-link-background: #5c7cfa; --block-link-background-digs: 92,124,250; --block-link-border-color: #5c7cfa; --block-link-border-width: 2px; --block-link-border-width-offset: 2px; --block-link-shadow-params: none; --block-link-shadow-color: #00000033; --block-link-contrast-color: #fff; --block-link-title-fontsize: 18px; --block-link-title-lineheight: 1.2; --block-link-title-font-family: 'Roboto',sans-serif; --block-link-title-transform: none; --block-link-title-font-weight: 400; --block-link-subtitle-fontsize: 16px; --block-link-subtitle-lineheight: 1.2; --block-link-subtitle-font-family: 'Roboto',sans-serif;">
+                                                            <div>
+                                                                <div class="btn-link-title">Пакетное предложение</div>
+                                                                <div class="btn-link-subtitle">Цена от 4тыс</div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hidden Helper for Auto-Resize -->
+<div style="position:absolute;top:-1000px;z-index: -1">
+    <div id="autoResizeTextareaCopy" style="position: fixed; white-space: pre-wrap; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; visibility: hidden;"></div>
+</div>
+
+<script type="text/javascript" src="//ru.x.taplink.st/s/js/frontend.js?1.2.9995"></script>
+{% endblock %}
+
+

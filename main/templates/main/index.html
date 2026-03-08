@@ -1,0 +1,195 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Терапия Души - Александр Журба{% endblock %}
+
+{% block content %}
+<div class="container--one">
+    <div class="container--two">
+        <header class="header">
+            <!-- Контейнер для логотипа слева -->
+            <div class="logo-container">
+                <a href="/">
+                    <img class="logo" src="{% static 'main/img/TER.svg' %}" alt="Терапия Души - Логотип">
+                </a>
+            </div>
+
+            <!-- Основное меню для десктопа -->
+            <nav class="main-nav desktop-nav" id="mainNav" aria-label="Основная навигация">
+                <ul>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#method">О методе</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#footer">Контакты</a></li>
+                    <li class="social-item">
+                        <a href="https://t.me/Alexander_Zurba" target="_blank" aria-label="Telegram">
+                            <img src="{% static 'main/img/TG.png' %}" alt="Telegram" class="logo-tg">
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="https://wa.me/79779637789" target="_blank" aria-label="WhatsApp">
+                            <img src="{% static 'main/img/WA.png' %}" alt="WhatsApp" class="logo-wa">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Бургер-меню справа -->
+            <button class="burger-menu" id="burgerMenu" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+
+        <!-- Секция героя -->
+        <section class="hero">
+            <div class="image">
+                <img class="profile-photo" src="{% static 'main/img/SEC-1.jpg' %}" alt="Александр Журба"/>
+            </div>
+            <div class="hero--info">
+                <h1 class="name">Александр Журба</h1>
+                <h2>СПЕЦИАЛИСТ МЕТОДА «ТЕРАПИЯ ДУШИ»</h2>
+                <p class="text-1">Помогу в течение часа определить корень травмирующего события, сниму воздействия и облегчу психологическое состояние человека. Устраню неосознанные преграды на пути достижения жизненных целей.</p>
+                <a href="cons/" target="_blank" onclick="window.open(this.href, '_blank'); return false;">
+                    <button class="btn-thap">записаться на консультацию</button>
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="container--method">
+    <div class="container--advantages" id="advantages">
+        <div class="method--this">
+            <h1>ТЕРАПИЯ ДУШИ —</h1>
+            <p>Это метод, в котором работает не только разум, но и тело, чувства, образы, бессознательное. Через глубокое погружение к ясности, облегчению и возвращению к себе.</p>
+        </div>
+        <div class="method--this">
+            <h2>Преимущества:</h2>
+            <ul>
+                <li class="advantages--text">⭐ Работа с тем, что невозможно описать словами</li>
+                <li class="advantages--text">⭐ Быстрые инсайты и телесное проживание</li>
+                <li class="advantages--text">⭐ Эмоциональная безопасность и экологичность</li>
+                <li class="advantages--text">⭐ Подходит тем, кто уже «всё попробовал»</li>
+            </ul>
+            <p>«Терапия Души — это путь, на котором ты не один, здесь можно быть настоящим.»</p>
+        </div>
+    </div>
+    <div class="container--style">
+        <div class="container--work" id="method">
+            <h3>Как работает метод</h3>
+            <h4>Терапия Души —</h4>
+            <p>«Терапия Души» работает с эмоциональной и когнитивной сферой человека. В фокусе метода: ум, память и зеркало сознания, то есть индивидуальные отражения внешних события.</p>
+            <p>Определив источники формирования уникального внутреннего контента человека, «Терапия Души» помогает изменить восприятие и стать свободным от присвоенных образов, схем и историй.</p>
+            <a href="https://terapiyadushi.com/therapists/zhurba#personal-advisories" target="_blank" onclick="window.open(this.href, '_blank'); return false;">
+                <button class="btn-know">УЗНАТЬ ПОДРОБНЕЕ</button>
+            </a>
+        </div>
+        <div class="container--target">
+            <h4>ЦЕЛЬ МЕТОДА</h4>
+            <p>Образы индивидуального сознания присваиваются из семейных историй, метафор, от архетипических или сказочных героев. Они складываются в нефункциональную связь, на основе которой человек вырабатывает схемы внешнего поведения.</p>
+            <p>Цель «Терапии Души» заключается в том, чтобы, используя 24-этапную диагностику, помочь найти и осознать эту связь, раскрыв её источники.</p>
+            <p>Изменение образных схем и расширение зоны осознавания приводит к корректировке стратегии поведения, что позволяет решить за час те проблемы, с которыми люди живут десятки лет.</p>
+        </div>
+    </div>
+    <div class="container--style--help" id="services">
+        <div class="container--help">
+            <h4>Помогу тебе, если:</h4>
+            <ul>
+                <li>👉 если хочешь выстроить личные границы в отношениях</li>
+                <li>👉 если хочешь говорить о сложном без ссор и скандалов</li>
+                <li>👉 если хочешь перестать обесценивать себя и сравнивать с другими</li>
+                <li>👉 если ‌хочешь зарабатывать больше и в удовольствие</li>
+                <li>👉 если трудно говорить «нет» и держать границы</li>
+            </ul>
+            <p>Ответы на эти и многие другие вопросы ты получишь на индивидуальных онлайн-сессиях или офлайн-группе!</p>
+            <div class="photo-2">
+                <img src="{% static 'main/img/SEC999.jpg' %}" alt="Александр Журба" class="profile-photo-2">
+            </div>
+        </div>
+    </div>
+    <div class="container--certificate" id="certificate">
+        <div class="certificate">
+            <img src="{% static 'main/img/certificate.jpg' %}" alt="Александр Журба" class="certificate-photo">
+        </div>
+    </div>
+
+    <div class="container--style--prices" id="prices">
+        <div class="container--grid">
+            <div class="individual">
+                <h2>Индивидуальная консультация</h2>
+                <h3>Кому подойдёт</h3>
+                <p>Для тех, кто переживает кризис, испытывает сомнения и трудности с выражением чувств.<br> В этом персональном пространстве мы проанализируем эмоции и обретём уверенность.</p>
+                <h2>5 000 ₽</h2>
+                <a href="https://booking.booknow.ru/masterskaya-terapii-dushi" target="_blank" onclick="window.open(this.href, '_blank'); return false;">
+                    <button class="btn-sign-up">Записаться</button>
+                </a>
+            </div>
+            <div class="individual">
+                <h2>Групповая терапия</h2>
+                <h3><br>Когда подойдёт</h3>
+                <p>Идеальный формат для исследования себя через диалог и обратную связь.<br> Вы станете частью поддерживающего сообщества с общими целями в атмосфере доверия.<br> Это позволяет глубже и быстрее раскрыться через опыт других участников, способствуя быстрым и глубоким изменениям.</p>
+                <h2>5 000 ₽</h2>
+                <a href="https://t.me/Alexander_Zurba" target="_blank" onclick="window.open(this.href, '_blank'); return false;">
+                     <button class="btn-sign-up">Записаться</button>
+                </a>
+            </div>
+            <div class="individual">
+                <h2>Роль «Заместитель»</h2>
+                <h3><br>Что вас ждёт:</h3>
+                <p>Вы станете активным участником группового процесса в особой, безоценочной позиции. </p>
+                <h3>В чём польза?</h3>
+                <p>1. Глубокое понимание: Вы увидите, «как это работает», изнутри, что невозможно понять просто по описанию.
+<br>2. Ценность: Это самый мягкий способ погрузиться в методологию на практике и получить уникальный опыт. Идеальный вариант для осторожного первого знакомства с терапией</p>
+                <h2>0 ₽</h2>
+                <a href="https://t.me/Alexander_Zurba" target="_blank" onclick="window.open(this.href, '_blank'); return false;">
+                    <button class="btn-sign-up">Записаться</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+    <div class="footer-content">
+        <!-- Логотип слева -->
+        <div class="footer-logo">
+            <img src="{% static 'main/img/footer.svg' %}" alt="Logo" class="logo-svg">
+        </div>
+
+        <!-- Основной контент справа -->
+        <div class="footer-main">
+            <!-- Контакты -->
+            <div class="footer-section contacts-section">
+                <div class="footer-title">TG канал:</div>
+                <div class="contacts-logo">
+                    <a href="https://t.me/MasterskyaTerapiyaDuschi" target="_blank" onclick="window.open(this.href, '_blank'); return false;">
+                        <img src="{% static 'main/img/TG.png' %}" alt="Telegram" class="logo-tg">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Консультация -->
+            <div class="footer-section consultation-section">
+                <div class="footer-title">ЗАПИСЬ НА КОНСУЛЬТАЦИЮ:</div>
+                <div class="consultation-content">
+                    <a href="https://terapiyadushi.com/therapists/zhurba#personal-advisories" target="_blank" onclick="window.open(this.href, '_blank'); return false;">
+                        <button class="consultation-button">ЗАПИСАТЬСЯ</button>
+                    </a>
+                    <div class="consultation-logos">
+                        <a href="https://t.me/Alexander_Zurba" target="_blank" onclick="window.open(this.href, '_blank'); return false;">
+                            <img src="{% static 'main/img/TG.png' %}" alt="Telegram" class="logo-tg">
+                        </a>
+                        <a href="https://wa.me/79779637789" target="_blank" onclick="window.open(this.href, '_blank'); return false;">
+                            <img src="{% static 'main/img/WA.png' %}" alt="WhatsApp" class="logo-wa">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="{% static 'main/js/script.js' %}"></script>
+{% endblock %}

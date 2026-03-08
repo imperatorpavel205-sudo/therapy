@@ -1,0 +1,1705 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Viaoda+Libre&display=swap');
+
+body {
+    font-family: 'Fira Sans Condensed', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container--one {
+    background-image: url('../img/СЕКЦИЯ-1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+}
+
+.container--two {
+    max-width: 1234px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .container--two {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+}
+
+/* ===== HEADER СТИЛИ ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    position: relative;
+    min-height: 80px;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+/* Контейнер для логотипа слева */
+.logo-container {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    z-index: 1002;
+    flex-shrink: 0;
+}
+
+/* Основное меню для десктопа */
+.main-nav.desktop-nav {
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.main-nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    flex-wrap: wrap;
+    font-size: clamp(12px, 1.5vw, 22px);
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+}
+
+.main-nav ul li:not(:has(img)) {
+    margin-right: 14px;
+}
+
+.main-nav ul li:has(a[href^="tel:"]) {
+    margin-right: 25px !important;
+}
+
+.main-nav ul li:has(.logo-tg) {
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.main-nav ul li:has(.logo-wa) {
+    margin-right: 0;
+}
+
+.main-nav ul li:last-child {
+    margin-right: 0;
+}
+
+.main-nav ul li {
+    display: inline-block;
+}
+
+.main-nav ul li a {
+    color: #000000;
+}
+
+.logo-tg {
+    display: block;
+    width: 50px;
+    height: 50px;
+    max-width: 100%;
+    object-fit: contain;
+    aspect-ratio: 1/1;
+}
+
+.logo-wa {
+    display: block;
+    width: 50px;
+    height: 50px;
+    max-width: 100%;
+    object-fit: contain;
+    aspect-ratio: 1/1;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    filter: brightness(0) saturate(100%) invert(32%) sepia(88%) saturate(1200%) hue-rotate(200deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== ПЕРВАЯ СЕКЦИЯ (ГЕРОЙ) ===== */
+.hero {
+    display: flex;
+    gap: 5vw;
+    padding: 60px 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Контейнер для фотографии */
+.image {
+    flex: 0 0 45%;
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Контейнер для текста */
+.hero--info {
+    flex: 0 0 50%;
+    max-width: 50%;
+    color: #9E744D;
+    font-family: 'Viaoda Libre', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Имя в рамке */
+.name {
+    color: #9E744D;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    padding: 12px 50px;
+    display: inline-block;
+    font-family: 'Viaoda Libre', cursive;
+    font-weight: 600;
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Заголовок h1 */
+.hero--info h1 {
+    font-size: clamp(30px, 3vw, 48px);
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.8;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    width: 100%;
+}
+
+/* Заголовок h2 */
+.hero--info h2 {
+    font-size: clamp(24px, 3vw, 45px);
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: left;
+    width: 100%;
+}
+
+/* Основной текст */
+.text-1 {
+    font-size: clamp(16px, 2vw, 30px);
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: left;
+    width: 100%;
+}
+
+/* Кнопка записаться */
+.btn-thap {
+    display: flex;
+    background: #000080;
+    color: #fff;
+    border-radius: 100px;
+    padding: 15px 30px;
+    border: 0;
+    font-size: clamp(16px, 1.5vw, 25px);
+    margin-top: 25px;
+    transition: all 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+.btn-thap:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== ОСТАЛЬНЫЕ СЕКЦИИ ===== */
+.container--method {
+    background-color: #f4e7de;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.9;
+    padding-top: 75px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* СЕКЦИЯ ADVANTAGES */
+.container--advantages {
+    background-color: #00008B;
+    color: #fff;
+    max-width: 1234px;
+    margin: 0 auto;
+    padding: 65px 55px 85px;
+    border-radius: 50px;
+    font-family: 'Viaoda Libre', cursive;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 98px;
+    font-size: clamp(15px, 2vw, 21px);
+    line-height: 1.5;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 100%;
+
+    gap: 40px;
+}
+
+
+
+
+.method--this {
+    width: 425px;
+    height: 400px;
+    padding: 0px 45px;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    flex: 1 1 calc(50% - 20px);
+    min-width: 300px;
+}
+
+.method--this p {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+
+
+
+
+
+
+.method--this h1,
+.method--this h2 {
+    font-size: clamp(22px, 2.5vw, 32px);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.advantages--text li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+    text-align: left;
+}
+
+.advantages--text li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 15px;
+    height: 15px;
+    background-color: #FFDAB9;
+    border-radius: 50%;
+}
+
+
+.advantages--text {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+/* КОНТЕЙНЕР STYLE */
+.container--style {
+    max-width: 1234px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    line-height: 1.5;
+    font-family: 'Viaoda Libre', cursive;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: stretch;
+}
+
+.container--work {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    min-height: 500px;
+    color: #00008B;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 98px;
+    font-size: clamp(16px, 2vw, 23px);
+    box-sizing: border-box;
+    padding: 40px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    border-radius: 30px;
+
+    background-color: #f4e7de;
+    flex: 1 1 calc(50% - 20px);
+    min-width: 300px;
+}
+
+/* СЕКЦИЯ TARGET */
+.container--target {
+    width: 675px;
+    max-width: 100%;
+    height: auto;
+    min-height: 400px;
+    background-color: #FFDAB9;
+    color: #00008B;
+    margin: 0;
+    padding: 40px 35px 50px;
+    border-radius: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 98px;
+    font-size: clamp(16px, 1.8vw, 22px);
+    line-height: 1.6;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+
+    flex: 1 1 calc(50% - 20px);
+    min-width: 300px;
+}
+
+.btn-know {
+    display: flex;
+    background: #000080;
+    color: #fff;
+    border-radius: 100px;
+    padding: 16px 35px;
+    border: 0;
+    font-size: clamp(16px, 1.8vw, 22px);
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: auto;
+    font-weight: 500;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.container--work h3 {
+    font-size: clamp(22px, 2.5vw, 32px);
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #00008B;
+    text-align: left;
+}
+
+.container--work h4,
+.container--target h4 {
+    font-size: clamp(20px, 2.2vw, 28px);
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #00008B;
+    text-align: left;
+}
+
+.container--target h4 {
+    text-align: center;
+}
+
+.container--work p,
+.container--target p {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.container--target p {
+    text-align: center;
+}
+
+
+
+.btn-know:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.container--style--help {
+    width: 100%;
+    padding-bottom: 55px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.container--help {
+    max-width: 1234px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: flex-end;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.container--help > :not(.photo-2) {
+    grid-column: 1;
+}
+
+.photo-2 {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 100%;
+}
+
+.container--help h4 {
+    font-size: clamp(20px, 2.5vw, 32px);
+    margin-bottom: 23px;
+    color: #00008B;
+    font-weight: 600;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.container--help ul {
+    list-style-type: none;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.container--help li {
+    font-size: clamp(17px, 2vw, 24px);
+    line-height: 1.8;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    position: relative;
+    color: #00008B;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.container--help p {
+    font-size: clamp(17px, 1.8vw, 23px);
+    line-height: 1.8;
+    color: #00008B;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.profile-photo-2 {
+    display: block;
+    width: 330px;
+    height: auto;
+    border-radius: 45px;
+    max-width: 100%;
+}
+
+.container--certificate {
+    background-image: url('../img/lg1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    max-width: 1234px;
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 60px;
+    display: block;
+    margin-bottom: 98px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+}
+
+.certificate-photo {
+    display: block;
+    width: 376px;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* СЕКЦИЯ С ЦЕНАМИ */
+.container--style--prices {
+    background-image: url('../img/Frame_65.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    max-width: 1234px;
+    margin: 0 auto;
+    padding: 75px;
+    border-radius: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+}
+
+.container--grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: stretch;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.individual {
+    height: 100%;
+    min-height: 550px;
+    background-color: #fff;
+    color: #000;
+    font-family: 'Fira Sans Condensed', Arial, sans-serif;
+    border-radius: 40px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.individual h2,
+.individual h3,
+.individual p {
+    margin: 0;
+    padding: 0;
+}
+
+.individual h2 {
+    font-size: clamp(18px, 2vw, 24px);
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.individual h3 {
+    font-size: clamp(16px, 1.8vw, 20px);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.individual p {
+    font-size: clamp(14px, 1.6vw, 18px);
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.individual p:last-of-type {
+    margin-bottom: 20px;
+}
+
+.individual > h2:last-of-type {
+    font-size: clamp(22px, 2.5vw, 28px);
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.btn-sign-up {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #000080;
+    color: #fff;
+    border-radius: 100px;
+    padding: 15px 30px;
+    border: 0;
+    font-size: clamp(16px, 1.5vw, 20px);
+    margin: 0;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    max-width: 100%;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-sign-up:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для футера */
+footer {
+    background-color: #FFDAB9;
+    color: #000;
+    padding: 40px 40px;
+    margin-top: auto;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.footer-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-left: 0;
+    filter: brightness(0) saturate(100%) invert(32%) sepia(88%) saturate(1200%) hue-rotate(200deg);
+}
+
+.logo-svg {
+    max-width: 250px;
+    height: 250px;
+    width: 100%;
+}
+
+.footer-main {
+    flex-grow: 1;
+    display: flex;
+    gap: 80px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    font-size: clamp(14px, 1.5vw, 18px);
+    margin-bottom: 10px;
+    color: #0077FF;
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.contacts-section {
+    margin-top: 0;
+}
+
+.contacts-logo {
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.contacts-logo img {
+    max-width: 50px;
+    transition: transform 0.3s ease;
+    width: 50px; /* ЗАМЕНИТЕ 100% на фиксированное значение */
+    height: 50px; /* ДОБАВЬТЕ ЭТУ СТРОКУ */
+    object-fit: contain;
+}
+
+.contacts-logo img:hover {
+    transform: scale(1.1);
+}
+
+.consultation-section {
+    margin-top: 0;
+}
+
+.consultation-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.consultation-button {
+    background-color: #000080;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    font-size: clamp(14px, 1.2vw, 16px);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    min-width: 200px;
+    margin: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.consultation-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.consultation-logos {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.consultation-logos img {
+    max-width: 55px;
+    transition: transform 0.3s ease;
+    width: 45px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.consultation-logos img:hover {
+    transform: scale(1.1);
+}
+
+.logo-tg, .logo-wa {
+    max-width: 50px;
+    height: auto;
+}
+
+/* ===== УЛУЧШЕННЫЙ БУРГЕР-МЕНЮ ===== */
+/* Контейнер бургера - ОСНОВНЫЕ СТИЛИ для средних экранов */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50px;
+    height: 50px; /* Увеличена высота для большего расстояния между полосками */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px 0; /* Добавлены отступы сверху и снизу */
+    z-index: 1001;
+    position: relative;
+    align-items: center;
+}
+
+/* Полоски бургера с увеличенным расстоянием */
+.burger-menu span {
+    width: 100%;
+    height: 4px;
+    background-color: #000080;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    display: block;
+    transform-origin: center;
+    position: absolute;
+    left: 0;
+}
+
+/* Расположение полосок с увеличенным расстоянием */
+.burger-menu span:nth-child(1) {
+    top: 0;
+    transform: translateY(0);
+}
+
+.burger-menu span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burger-menu span:nth-child(3) {
+    bottom: 0;
+    transform: translateY(0);
+}
+
+/* Анимация в крестик */
+.burger-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    background-color: #fff;
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateY(-50%) scale(0);
+}
+
+.burger-menu.active span:nth-child(3) {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+    background-color: #fff;
+}
+
+/* Мобильное меню */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    height: 100%;
+    background-color: #00008B;
+    z-index: 1000;
+    padding: 80px 25px 30px;
+    transition: right 0.4s ease;
+    overflow-y: auto;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu ul li {
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu.active ul li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Анимация появления пунктов меню */
+.mobile-menu ul li:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu ul li:nth-child(2) { transition-delay: 0.15s; }
+.mobile-menu ul li:nth-child(3) { transition-delay: 0.2s; }
+.mobile-menu ul li:nth-child(4) { transition-delay: 0.25s; }
+.mobile-menu ul li:nth-child(5) { transition-delay: 0.3s; }
+.mobile-menu ul li:nth-child(6) { transition-delay: 0.35s; }
+.mobile-menu ul li:nth-child(7) { transition-delay: 0.4s; }
+.mobile-menu ul li:nth-child(8) { transition-delay: 0.45s; }
+.mobile-menu ul li:nth-child(9) { transition-delay: 0.5s; }
+
+.mobile-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu ul li a:hover {
+    color: #FFDAB9;
+    padding-left: 10px;
+}
+
+/* Кнопка закрытия в мобильном меню */
+.mobile-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-close-btn::before,
+.mobile-close-btn::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.mobile-close-btn::before {
+    transform: rotate(45deg);
+}
+
+.mobile-close-btn::after {
+    transform: rotate(-45deg);
+}
+
+.mobile-close-btn:hover::before,
+.mobile-close-btn:hover::after {
+    background-color: #FFDAB9;
+    transform: rotate(0deg);
+}
+
+.mobile-menu .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-menu .social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #FFDEAD;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.mobile-menu .social-icons a:hover {
+    transform: scale(1.1);
+    background: #FFDEAD;
+}
+
+.mobile-menu .social-icons img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain !important;
+    aspect-ratio: 1/1 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+a[href*="t.me"],
+a[href*="wa.me"],
+a[href*="telegram"],
+a[href*="whatsapp"] {
+    display: inline-block !important;
+    position: relative !important;
+    z-index: 1 !important;
+    cursor: pointer !important;
+}
+
+
+.main-nav ul li a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Контейнер для иконок в десктопном меню */
+.main-nav ul li:has(.logo-tg) a,
+.main-nav ul li:has(.logo-wa) a {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    padding: 5px !important;
+}
+
+
+.mobile-menu .social-icons a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 50% !important;
+    position: relative !important;
+    z-index: 100 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+
+.contacts-logo a,
+.consultation-logos a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+
+.logo-tg,
+.logo-wa {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.main-nav .logo-tg,
+.main-nav .logo-wa {
+    width: 35px;
+    height: 35px;
+}
+
+/* Размеры для мобильного меню */
+.mobile-menu .logo-tg,
+.mobile-menu .logo-wa {
+    width: 30px;
+    height: 30px;
+}
+
+/* Размеры для футера */
+.contacts-logo .logo-tg,
+.contacts-logo .logo-wa,
+.consultation-logos .logo-tg,
+.consultation-logos .logo-wa {
+    width: 40px;
+    height: 40px;
+}
+
+/* 6. ВАЖНО: УБЕРАЕМ ПЕРЕКРЫТИЕ ЭЛЕМЕНТОВ */
+header,
+footer,
+.mobile-menu {
+    pointer-events: auto !important;
+}
+
+/* МЕДИА-ЗАПРОСЫ ДЛЯ АДАПТИВНОСТИ */
+@media (max-width: 767px) {
+    .mobile-menu .social-icons a {
+        width: 55px !important;
+        height: 55px !important;
+    }
+
+    .mobile-menu .logo-tg,
+    .mobile-menu .logo-wa {
+        width: 28px;
+        height: 28px;
+    }
+
+    .contacts-logo a,
+    .consultation-logos a {
+        width: 50px !important;
+        height: 50px !important;
+    }
+}
+
+
+
+
+
+
+
+
+/* ===== МЕДИА-ЗАПРОСЫ ДЛЯ 768-1215px ===== */
+@media (max-width: 1215px) and (min-width: 768px) {
+    .container--advantages {
+        padding: 50px 40px 70px;
+        border-radius: 40px;
+        margin-bottom: 70px;
+        gap: 30px;
+    }
+
+    .method--this {
+        height: auto;
+        padding: 0 10px;
+        flex: 1 1 100%;
+    }
+
+    .method--this:first-child {
+        margin-bottom: 30px;
+    }
+
+    .container--style {
+        gap: 30px;
+    }
+
+    .container--work,
+    .container--target {
+        flex: 1 1 100%;
+        margin-bottom: 50px;
+        padding: 35px 30px;
+        border-radius: 35px;
+    }
+
+    .container--target {
+        padding: 35px 30px 45px;
+    }
+
+    .btn-know {
+        margin-left: auto;
+        margin-right: auto;
+        align-self: center;
+    }
+
+    /* Улучшаем читаемость текста */
+    .container--work h3,
+    .container--target h4 {
+        text-align: center;
+    }
+
+    .container--work p {
+        text-align: justify;
+    }
+
+    .container--target p {
+        text-align: justify;
+    }
+}
+
+/* ===== ДОПОЛНИТЕЛЬНЫЕ ИСПРАВЛЕНИЯ ДЛЯ СРЕДНИХ ЭКРАНОВ ===== */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .container--two {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .container--advantages {
+        padding: 40px 30px 60px;
+        border-radius: 35px;
+        margin-bottom: 60px;
+    }
+
+    .method--this {
+        min-width: 100%;
+        padding: 0;
+    }
+
+    .method--this h1,
+    .method--this h2 {
+        text-align: center;
+        font-size: clamp(20px, 2.2vw, 28px);
+    }
+
+    .method--this p {
+        text-align: center;
+    }
+
+    .advantages--text {
+        text-align: center;
+    }
+
+    .advantages--text li {
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .advantages--text li:before {
+        display: none;
+    }
+
+    .container--work,
+    .container--target {
+        padding: 30px 25px;
+        border-radius: 30px;
+        margin-bottom: 40px;
+    }
+
+    .container--target {
+        padding: 30px 25px 40px;
+    }
+
+    .container--work h3 {
+        text-align: center;
+        font-size: clamp(20px, 2.2vw, 28px);
+    }
+
+    .container--work h4,
+    .container--target h4 {
+        text-align: center;
+        font-size: clamp(18px, 2vw, 26px);
+    }
+
+    .btn-know {
+        padding: 14px 30px;
+        font-size: clamp(16px, 1.6vw, 20px);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ===== МЕДИА-ЗАПРОСЫ ===== */
+/* Большие экраны (1024px и больше) */
+@media (min-width: 1024px) {
+    .burger-menu {
+        display: none !important;
+    }
+
+    .main-nav.desktop-nav {
+        display: flex !important;
+    }
+
+    .mobile-menu,
+    .mobile-overlay {
+        display: none !important;
+    }
+
+    .hero {
+        flex-direction: row;
+        gap: 40px;
+        padding: 50px 0;
+    }
+
+    .image {
+        flex: 0 35% 35%;
+        max-width: 40%;
+    }
+
+    .hero--info {
+        flex: 0 5% 50%;
+        max-width: 40%;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+
+/* Планшеты (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .burger-menu {
+        display: flex;
+        width: 40px;
+        height: 30px;
+    }
+
+    .burger-menu span {
+        height: 4px;
+    }
+
+    .main-nav.desktop-nav {
+        display: none !important;
+    }
+
+    header {
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        height: 80px;
+    }
+
+    .hero {
+        gap: 20px;
+        padding: 40px 0;
+    }
+
+    .image {
+        flex: 0 0 48%;
+        max-width: 48%;
+    }
+
+    .hero--info {
+        flex: 0 0 48%;
+        max-width: 48%;
+
+    }
+
+    .profile-photo {
+        max-width: 400px;
+    }
+
+    .name {
+        padding: 10px 30px;
+        font-size: clamp(18px, 1.8vw, 24px);
+    }
+}
+
+/* Мобильные устройства (767px и меньше) */
+@media (max-width: 767px) {
+    .burger-menu {
+        display: flex;
+        width: 35px;
+        height: 26px;
+    }
+
+    .burger-menu span {
+        height: 3px;
+    }
+
+    .burger-menu.active span:nth-child(1) {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    .burger-menu.active span:nth-child(3) {
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+    }
+
+    .main-nav.desktop-nav {
+        display: none !important;
+    }
+
+    header {
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        height: 70px;
+    }
+
+    .logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .container--one,
+    .container--method,
+    .container--certificate,
+    .container--style--prices {
+        background-attachment: scroll !important;
+    }
+
+    .container--two {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        max-width: 100% !important;
+    }
+
+    .hero {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 0;
+        text-align: center;
+    }
+
+    .image {
+        flex: 0 0 100%;
+        max-width: 100%;
+        order: 1;
+    }
+
+    .hero--info {
+        flex: 0 0 100%;
+        max-width: 100%;
+        order: 2;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-photo {
+        max-width: 100%;
+        border-radius: 20px;
+    }
+
+    .hero--info h1,
+    .hero--info h2,
+    .text-1 {
+        text-align: center !important;
+    }
+
+    .name {
+        margin: 0 auto 20px;
+        padding: 8px 25px;
+        font-size: 18px;
+    }
+
+    .btn-thap {
+        margin: 0 auto;
+        padding: 14px 30px;
+        font-size: 16px;
+    }
+
+    .container--advantages {
+        flex-direction: column;
+        padding: 30px 20px 50px !important;
+        gap: 30px;
+        border-radius: 25px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .method--this {
+        width: 100% !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 auto;
+    }
+
+    .container--style {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .container--work,
+    .container--target {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 25px 20px 40px !important;
+        margin-bottom: 40px;
+        border-radius: 25px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .container--target {
+        padding: 25px 20px 40px !important;
+        margin-bottom: 50px;
+    }
+
+    .btn-know {
+        margin-top: 25px;
+        padding: 14px 30px;
+        font-size: clamp(16px, 1.8vw, 21px);
+    }
+
+    .container--help {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+        margin: 5px;
+        padding-left: 5px;
+        padding-right: 10px;
+
+    }
+
+
+
+    .photo-2 {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+        justify-content: center;
+        order: 2;
+    }
+
+    .profile-photo-2 {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        border-radius: 25px;
+    }
+
+    .container--certificate,
+    .container--style--prices {
+        padding: 30px 15px !important;
+        border-radius: 25px;
+        margin-bottom: 50px;
+    }
+
+    .certificate-photo {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
+
+    .container--grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .individual {
+        width: 100% !important;
+        padding: 20px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        min-height: 450px;
+    }
+
+    .btn-sign-up {
+        width: 90%;
+        padding: 12px 20px;
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-main {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .footer-section {
+        align-items: center;
+    }
+
+    .footer-title {
+        text-align: center;
+        white-space: normal;
+    }
+
+    .consultation-content {
+        align-items: center;
+    }
+
+    .contacts-logo,
+    .consultation-logos {
+        justify-content: center;
+    }
+
+    .mobile-menu {
+        width: 280px;
+        padding: 70px 20px 20px;
+    }
+}
+
+/* Очень маленькие экраны (478px и меньше) - СОХРАНЯЕМ РАЗМЕР БУРГЕРА */
+@media (max-width: 478px) {
+    /* Сохраняем размер бургера как на 767px */
+    .burger-menu {
+        width: 35px !important;
+        height: 26px !important;
+    }
+
+    .burger-menu span {
+        height: 3px !important;
+    }
+
+    /* Остальные стили для маленьких экранов */
+    .logo-container,
+    .burger-menu {
+        height: 60px;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .name {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
+
+    .mobile-menu {
+        width: 260px;
+        padding: 60px 15px 15px;
+    }
+
+    /* Адаптируем другие элементы для маленьких экранов */
+    .hero {
+        padding: 20px 0;
+        gap: 20px;
+    }
+
+    .profile-photo {
+        border-radius: 15px;
+    }
+
+    .hero--info h1 {
+        font-size: clamp(25px, 4vw, 31px);
+    }
+
+    .hero--info h2 {
+        font-size: clamp(21px, 3.5vw, 27px);
+    }
+
+    .text-1 {
+        font-size: clamp(17px, 2.5vw, 19px);
+    }
+
+    .btn-thap {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+}
+
+
+

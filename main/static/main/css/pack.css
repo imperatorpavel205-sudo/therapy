@@ -1,0 +1,399 @@
+/* Основные переменные и сброс стилей */
+:root {
+    --primary-color: #566941;
+    --primary-dark: #3a4a2c;
+    --primary-light: #7a9a5a;
+    --text-dark: #2c3e50;
+    --text-light: #34495e;
+    --text-muted: #7f8c8d;
+    --bg-light: #f9fafb;
+    --bg-white: #ffffff;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* Контейнер страницы */
+.page.vue {
+    max-width: 800px; /* Уменьшил максимальную ширину для лучшей читаемости */
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.page-content {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Декоративные элементы */
+.page-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+}
+
+/* Секция с блоками */
+.blocks-section {
+    padding: 40px;
+}
+
+/* Блок с текстом */
+.block-item.block-text {
+    margin-bottom: 40px;
+}
+
+.block-text.has-text-element {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    background: var(--bg-light);
+    padding: 40px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: block; /* Убеждаемся, что это блочный элемент */
+    width: 100%;
+}
+
+/* Убираем grid из предыдущей версии */
+.block-text {
+    display: block !important; /* Переопределяем grid на block */
+}
+
+/* Стили для цитаты в начале */
+.block-text i:first-of-type {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    line-height: 1.6;
+    padding: 20px;
+    background: rgba(86, 105, 65, 0.05);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-style: italic;
+}
+
+/* Стили для всех заголовков */
+.block-text b {
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+    display: block;
+    margin: 40px 0 20px;
+    position: relative;
+    font-weight: 700;
+}
+
+.block-text b:first-of-type {
+    margin-top: 0;
+}
+
+.block-text b::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Стили для подзаголовков пакетов */
+.block-text u {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--primary-dark);
+    font-size: 1.3rem;
+    display: block;
+    margin: 30px 0 10px;
+    border-bottom: 2px solid rgba(86, 105, 65, 0.2);
+    padding-bottom: 10px;
+}
+
+/* Стили для эмодзи */
+.block-text u::before {
+    content: attr(data-emoji);
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Стили для списка условий */
+.block-text p,
+.block-text div:not(.special) {
+    margin-bottom: 15px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Стили для строк с дефисами */
+.block-text br + —,
+.block-text:contains("—") {
+    display: block;
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+/* Стили для пунктов списка */
+.block-text br + — {
+    display: block;
+    margin: 8px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.block-text br + —::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 5px;
+}
+
+/* Стили для цен */
+.block-text u + br + — {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 5px 0 10px;
+    padding-left: 0;
+}
+
+.block-text u + br + —::before {
+    display: none;
+}
+
+/* Стили для описаний пакетов */
+.block-text i:not(:first-of-type) {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin: 10px 0 30px;
+    padding: 15px 20px;
+    background: rgba(86, 105, 65, 0.03);
+    border-radius: var(--radius-sm);
+    font-style: normal;
+    border-left: 3px solid var(--primary-light);
+}
+
+/* Стили для строк с условиями */
+.block-text b:last-of-type + br + br + br + br + br + —,
+.block-text:contains("Пакет 3 и 5 сессий") {
+    display: block;
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(86, 105, 65, 0.05);
+    border-radius: var(--radius-sm);
+}
+
+/* Блок с кнопкой */
+.block-item.block-link {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.button.btn-link {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+    text-decoration: none;
+    padding: 20px 50px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    max-width: 400px;
+    width: 100%;
+}
+
+.button.btn-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.button.btn-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+}
+
+.button.btn-link:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-link-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-link-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-top: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .page.vue {
+        margin: 20px auto;
+    }
+
+    .blocks-section {
+        padding: 20px;
+    }
+
+    .block-text.has-text-element {
+        padding: 25px;
+        font-size: 1rem;
+    }
+
+    .block-text i:first-of-type {
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+
+    .block-text b {
+        font-size: 1.3rem;
+        margin: 30px 0 15px;
+    }
+
+    .block-text u {
+        font-size: 1.2rem;
+    }
+
+    .button.btn-link {
+        padding: 15px 30px;
+    }
+
+    .btn-link-title {
+        font-size: 1.2rem;
+    }
+
+    .btn-link-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blocks-section {
+        padding: 15px;
+    }
+
+    .block-text.has-text-element {
+        padding: 20px;
+    }
+
+    .block-text u {
+        font-size: 1.1rem;
+    }
+
+    .block-text i:not(:first-of-type) {
+        padding: 12px;
+    }
+}
+
+/* Анимация появления элементов */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.block-item {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.block-item:nth-child(1) { animation-delay: 0.2s; }
+.block-item:nth-child(2) { animation-delay: 0.4s; }
+
+/* Стили для разделителей между пакетами */
+.block-text i:not(:first-of-type) {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.block-text i:not(:first-of-type)::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+}
+
+/* Стили для последнего элемента */
+.block-text i:last-of-type::after {
+    display: none;
+}
+
+/* Исправление отображения списка условий */
+.block-text b:contains("УСЛОВИЯ И СРОКИ") + br + br + br + br + br + —,
+.block-text:contains("Пакет 3 и 5 сессий") {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Стили для строк с ценами */
+[class*="сесси"] {
+    word-break: break-word;
+}
+
+
+
+
+
+
+
+
+
